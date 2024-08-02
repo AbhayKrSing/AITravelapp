@@ -6,6 +6,7 @@ import PlanTrip from './pages/PlanTrip'
 import Contact from "./pages/Contact";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import TripPage from "./pages/TripPage";
 import './App.css';
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/planTrip" element={<PlanTrip/>}/>
+      <Route path="/trip" element={<TripPage />}/>
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/register" element={<Register/>}/>
       <Route path="/login" element={<Login/>}/>

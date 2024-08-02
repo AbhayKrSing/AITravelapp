@@ -1,7 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const TravelPreferences = () => {
+
+  const navigate = useNavigate();
+
   const [destination, setDestination] = useState('');
   const [duration, setDuration] = useState('');
   const [budget, setBudget] = useState('');
@@ -10,6 +14,7 @@ const TravelPreferences = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ destination, duration, budget, travelGroup });
+    navigate('/trip');
   };
 
   const budgetOptions = [
