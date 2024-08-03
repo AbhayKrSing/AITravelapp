@@ -2,7 +2,7 @@ import { model } from "../config/Gemini";
 
 export const generateResponse = async (destination, duration, budget, travelGroup) => {
   let prompt = `
-   Generate Travel Plan for Location: ${destination}, for ${duration} Days for ${travelGroup} with a ${budget} budget. Give me a Hotels options list with HotelName, Hotel address, Price, hotel image url, geo coordinates, rating, descriptions and suggest itinerary with placeName, Place Details, Place Image Url, Geo Coordinates, ticket Pricing, Time t travel each of the location for ${duration} days with each day plan with best time to visit in JSON format.
+   Generate Travel Plan for Location with its imageUrl: ${destination}, for ${duration} Days for ${travelGroup} with a ${budget} budget. Give me a Hotels options list with HotelName, Hotel address, Price, hotel image url, geo coordinates, rating, descriptions and suggest itinerary with placeName, Place Details,Place descriptions, Place Image Url, Geo Coordinates, ticket Pricing, Time t travel each of the location for ${duration} days with each day plan with best time to visit in JSON format.
  using this JSON schema:
     {
   "$schema": "http://json-schema.org/draft-07/schema#",
@@ -11,6 +11,9 @@ export const generateResponse = async (destination, duration, budget, travelGrou
     "location": {
       "type": "string"
     },
+    "imgUrl":{
+     "type":"string"
+    }
     "duration": {
       "type": "string"
     },
@@ -67,6 +70,9 @@ export const generateResponse = async (destination, duration, budget, travelGrou
                 "placeName": {
                   "type": "string"
                 },
+                "description":{
+                  "type":"string"
+                },
                 "placeImageUrl": {
                   "type": "string",
                   "format": "uri"
@@ -84,7 +90,7 @@ export const generateResponse = async (destination, duration, budget, travelGrou
                   "type": "string"
                 }
               },
-              "required": ["placeName", "placeImageUrl", "geoCoordinates", "ticketPricing", "timeToTravel", "bestTimeToVisit"]
+              "required": ["placeName", "placeImageUrl", "geoCoordinates", "ticketPricing", "timeToTravel", "bestTimeToVisit","description"]
             }
           }
         },
@@ -92,7 +98,7 @@ export const generateResponse = async (destination, duration, budget, travelGrou
       }
     }
   },
-  "required": ["location", "duration", "couple", "budget", "hotels", "itinerary"]
+  "required": ["location","imgUrl" ,"duration", "couple", "budget", "hotels", "itinerary"]
 }
 `;
   model.generateContent(prompt);
