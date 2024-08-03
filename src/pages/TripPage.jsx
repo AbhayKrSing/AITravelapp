@@ -1,4 +1,4 @@
-import React from "react";
+
 import { FaPaperPlane } from "react-icons/fa";
 import DayPlan from "../components/Trip/DayPlan";
 import HotelRecommendation from "../components/Trip/HotelRecommendation";
@@ -57,7 +57,7 @@ export default function TripPage() {
         </div>
       </main>
 
-      <footer className="center">Plan created by Travel Jinny</footer>
+      {/* <footer className="center">Plan created by Travel Genie</footer> */}
     </>
   );
 }

@@ -37,7 +37,7 @@ function Home() {
       img: Dest_1,
       title: "India Gate",
       description:
-        "At the centre of New Delhi stands the 42 m high India Gate, an Arc-de-Triomphe like archway in the middle of a crossroad. ",
+        "At the centre of New Delhi stands the 42 m high India Gate, an Arc-de-Triomphe like archway in the middle of a crossroad.The India Gate was part of the work of the Imperial War Graves Commission (IWGC), which came into existence in December 1917 under the British rule for building war graves and memorials to soldiers who were killed in the First World War.",
     },
     {
       img: Dest_2,
@@ -95,14 +95,14 @@ function Home() {
     <>
       <div className="first-sec">
         <div className="hero-content">
-          <h1>Find your dream destinations 📷</h1>
+          <h1>Find your dream <br/> destinations 📷</h1>
           <p>
             Learn about tourism, and you will be amazed by all of the
             experiences you can find.
           </p>
           <div className="cta-buttons">
             <button className="plan-trip">
-              <Link to={"/planTrip"} style={{ color: "white" }}>
+              <Link className=" plan-trip-content"to={"/planTrip"} style={{ color: "white" }}>
                 Plan a Trip &gt;
               </Link>
             </button>
