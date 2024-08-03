@@ -135,8 +135,8 @@ function Home() {
           <h1>Popular Destination</h1>
         </center>
         <div className="popular-dest">
-          {popularVisits.map((place) => (
-            <div className="container-place-data" key={place.index}>
+          {popularVisits.map((place, idx) => (
+            <div className="container-place-data" key={idx}>
               {/* <p>{blog.img.data}</p> */}
               <img src={place.img} />
               <div className="place-data-style">
