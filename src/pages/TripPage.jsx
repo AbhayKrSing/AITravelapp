@@ -1,4 +1,3 @@
-
 import { FaPaperPlane } from "react-icons/fa";
 import DayPlan from "../components/Trip/DayPlan";
 import HotelRecommendation from "../components/Trip/HotelRecommendation";
