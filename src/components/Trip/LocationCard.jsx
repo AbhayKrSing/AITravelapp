@@ -9,7 +9,7 @@ export default function LocationCard({name, description, time, duration, cost, i
         <div className="location-details">
           <h6 className="location-name">{name}</h6>
           <p>
-            {description}
+            {description.length>80 ? description.slice(0, 80) + "..." : description}
           </p>
           <div>⏱{time}</div>
           <div>🎟️ {cost}</div>

@@ -4,38 +4,41 @@ import HotelRecommendation from "../components/Trip/HotelRecommendation";
 import { useLocation } from "react-router-dom";
 import { generateResponse } from "../AIResponse/Result";
 import { useEffect } from "react";
+import { useState } from "react";
+
 export default function TripPage() {
   const location = useLocation();
+
+  const [data, setData] = useState(null);
+
   const { destination, duration, budget, travelGroup } = location.state || {};
 
   useEffect(() => {
     (async () => {
-      const data = await generateResponse(
+      const res = await generateResponse(
         destination,
         duration,
         budget,
         travelGroup
       );
-      console.log(data);
+      const result = JSON.parse(res.split("\n").slice(1, -1).join("\n"));
+      setData(result);
     })();
-  }, []);
-
-  const main_img =
-    "https://wallpaperswide.com/download/luxury_hotel-wallpaper-1280x800.jpg";
+  }, [setData]);
 
   return (
     <>
       <main className="trip-box">
-        <img className="plan-main-img" src={main_img} />
+        <img className="plan-main-img" src="/image1.jpg" />
 
         <div className="plan-details">
           <div className="flex-row-sb">
             <div className="flex-column">
-              <h2>{destination}</h2>
+              <h2>{destination[0].toUpperCase() + destination.slice(1).toLowerCase()}</h2>
               <div className="flex-row chips">
                 <div>📅 {duration} Day</div>
                 <div>💰 {budget} Budget</div>
-                <div>🥂 No. of Traveler: {travelGroup} People</div>
+                <div>🥂 Type Traveler: {travelGroup}</div>
               </div>
             </div>
             <button className="plain-btn">
@@ -43,16 +46,20 @@ export default function TripPage() {
             </button>
           </div>
 
-          <HotelRecommendation hotels={Hotel_recommendation} />
+          {data !== null ? <>
+                        <HotelRecommendation hotels={data.hotels} />
+                        <div className="flex-column">
+                            <h2 className="divider">Places to Visit</h2>
+                            <div className="flex-column">
+                              {data.itinerary.map((day, idx) => (
+                                <DayPlan day={day} key={idx} />
+                              ))}
+                            </div>
+                        </div> 
+                  </>
+           : ""}
 
-          <div className="flex-column">
-            <h2 className="divider">Places to Visit</h2>
-            <div className="flex-column">
-              {plan.map((day, idx) => (
-                <DayPlan day={day} key={idx} />
-              ))}
-            </div>
-          </div>
+          
         </div>
       </main>
 
