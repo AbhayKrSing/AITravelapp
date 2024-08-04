@@ -15,13 +15,15 @@ export default function TripPage() {
 
   useEffect(() => {
     (async () => {
-      const res = await generateResponse(
+      const rawResponse = await generateResponse(
         destination,
         duration,
         budget,
         travelGroup
       );
-      const result = JSON.parse(res.split("\n").slice(1, -1).join("\n"));
+
+      let cleanedResponse = rawResponse.replace(/```json|```/g, "");
+      const result = JSON.parse(cleanedResponse);
       setData(result);
     })();
   }, [setData]);

@@ -5,7 +5,6 @@ export const generateResponse = async (destination, duration, budget, travelGrou
    Generate Travel Plan for Location with its imageUrl: ${destination}, for ${duration} Days for ${travelGroup} with a ${budget} budget. Give me a Hotels options list with HotelName, Hotel address, Price, hotel image url, geo coordinates, rating, descriptions and suggest itinerary with placeName, Place Details,Place descriptions, Place Image Url, Geo Coordinates, ticket Pricing, Time t travel each of the location for ${duration} days with each day plan with best time to visit in JSON format.
  using this JSON schema:
     {
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "location": {
