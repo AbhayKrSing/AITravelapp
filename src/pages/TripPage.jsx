@@ -30,10 +30,12 @@ export default function TripPage() {
 
   return (
     <>
-      {data === null ? (
+      {data == null ? (
         <div>
           <div className="loader"></div>
-          <div>Sit tight we are planning your trip</div>
+          <div style={{ textAlign: "center" }}>
+            Sit tight we are planning your trip....
+          </div>
         </div>
       ) : (
         <>
