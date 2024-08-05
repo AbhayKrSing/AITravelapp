@@ -36,36 +36,42 @@ function Home() {
     {
       img: Dest_1,
       title: "India Gate",
+      wikipediaUrl:"https://en.wikipedia.org/wiki/India_Gate",
       description:
         "At the centre of New Delhi stands the 42 m high India Gate, an Arc-de-Triomphe like archway in the middle of a crossroad.The India Gate was part of the work of the Imperial War Graves Commission (IWGC), which came into existence in December 1917 under the British rule for building war graves and memorials to soldiers who were killed in the First World War.",
     },
     {
       img: Dest_2,
       title: "Taj Mahal",
+      wikipediaUrl:"https://en.wikipedia.org/wiki/Taj_Mahal",
       description:
         "Entrusted to a board-of-architects by the Emperor Shah Jahan, the construction of the Taj Complex began about 1631 AD. The principal mausoleum was completed in 1648 AD by employing thousands of artisans and craftsmen, whereas, the outlying buildings and gardens were finished five years later in 1653 AD.",
     },
     {
       img: Dest_3,
       title: "Statue Of Unity",
+      wikipediaUrl:"https://en.wikipedia.org/wiki/Statue_of_Unity",
       description:
         "The statue has been built as an ode to the Iron Man of India, Sardar Vallabhbhai Patel, the first home minister of independent India. He was responsible for uniting all 562 princely states of the country to build the Republic of India.",
     },
     {
       img: Dest_4,
       title: "Somnath Temple",
+      wikipediaUrl:"https://en.wikipedia.org/wiki/Somnath_temple",
       description:
         "Dedicated to Lord Shiva, the Somnath Temple is one of the most important spiritual sites in the Hindu circuit. Believed to be the first of the 12 jyotirlingas",
     },
     {
       img: Dest_5,
       title: "Golden Temple",
+      wikipediaUrl:"https://en.wikipedia.org/wiki/Golden_Temple",
       description:
         "The Golden Temple Amritsar India (Sri Darbar Sahib Amritsar) is not only a central religious place of the Sikhs, but also a symbol of human brotherhood and equality. Everybody, irrespective of cast, creed or race can seek spiritual solace and religious fulfilment without any hindrance. It also represents the distinct identity, glory and heritage of the Sikhs.",
     },
     {
       img: Dest_6,
       title: "Mysore Palace",
+      wikipediaUrl:"https://en.wikipedia.org/wiki/Mysore_Palace",
       description:
         "The Palace of Mysore (also known as the Amba Vilas Palace) is a historical palace in the city of Mysore in Karnataka. Designed by the English Architect, Henry Irwin, the Mysore Palace dominates the skyline of Mysore.",
     },
@@ -106,7 +112,7 @@ function Home() {
                 Plan a Trip &gt;
               </Link>
             </button>
-            <button className="watch-story">▶ Watch our Story</button>
+         
           </div>
         </div>
         <div className="hero-image">
@@ -136,8 +142,9 @@ function Home() {
         </center>
         <div className="popular-dest">
           {popularVisits.map((place, idx) => (
-            <div className="container-place-data" key={idx}>
-              {/* <p>{blog.img.data}</p> */}
+            <a href={place.wikipediaUrl}   key={idx}>
+            <div className="container-place-data" key={idx} >
+             
               <img src={place.img} />
               <div className="place-data-style">
                 <h2 className="place-data-title">{place.title}</h2>
@@ -145,6 +152,7 @@ function Home() {
                 <p className="place-data-desc">{place.description}</p>
               </div>
             </div>
+            </a>
           ))}
         </div>
         <div id="third" className="third-sec">
