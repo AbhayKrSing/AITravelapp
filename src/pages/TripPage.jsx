@@ -31,7 +31,10 @@ export default function TripPage() {
   return (
     <>
       {data === null ? (
-        <div className="loader"></div>
+        <div>
+          <div className="loader"></div>
+          <div>Sit tight we are planning your trip</div>
+        </div>
       ) : (
         <>
           <main className="trip-box">
